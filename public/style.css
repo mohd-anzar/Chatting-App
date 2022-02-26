@@ -3,7 +3,9 @@ body{
    
 }
 .container{
-    background-color: white;
+    background-image: url("g.jpg");
+    background-position: center;
+    background-size: contain;
     width:100%;
     display: block;
     float: right;
