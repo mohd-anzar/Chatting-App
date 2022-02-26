@@ -1,19 +1,19 @@
 body{
-   background-color: blue;
+   background-color: skyblue;
    
 }
 .container{
-    background-color: brown;
-    width:80%;
+    background-color: white;
+    width:100%;
     display: block;
-    margin:auto;
+    float: right;
     margin-bottom: 10px;
     height: 70vh;
-    overflow: auto;
+    overflow: scroll;
 }
 .message{
     background-color: cornflowerblue;
-    width:24%;
+    width:50%;
     padding:10px;
     margin:20px;
     border-radius: 10px;
@@ -27,18 +27,18 @@ body{
     float: right;
     clear: both;
 }
-#send_message{
-    display:block;
-    text-align: center;
-    max-width:80%;
-    width:100%;
-    margin: auto;
-    
-}
 #messageinput{
-    width:93%;
+    width:75%;
+    height: 24px;
 }
 .btn{
+    width: 23.5%;
     cursor:pointer;
-    border-radius: 10px;
+    height: 30px;
+}
+@media screen and (max-width: 820px) {
+    .btn{
+        width:20%;
+        float: right;
+    }
 }
