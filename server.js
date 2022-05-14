@@ -19,9 +19,12 @@ const users = {};
 
 io.on('connection', socket => {
     socket.on('new-user-joined', na =>{
+
         console.log("New User", na);
         users[socket.id]=na;
+        socket.emit('welcome',na);
         socket.broadcast.emit('user-joined',na);
+        socket.broadcast.emit('show',na);
     });
     socket.on('send', message => {
         socket.broadcast.emit('receive',{message: message, na: users[socket.id]})

@@ -2,7 +2,7 @@ const socket = io();
 
 const form = document.getElementById("send_message");
 const messageinput = document.getElementById("messageinput");
-
+const mmm = document.getElementById('userr');
 const messageConatiner = document.querySelector(".container");
 
  
@@ -15,6 +15,12 @@ const appand = (message,position) => {
     messageConatiner.scrollTop = messageConatiner.scrollHeight;
     
 }
+const aaaa = (mm) => {
+     const m = document.createElement('span');
+     m.innerText =  str(mm).toUpperCase();
+     mmm.append(m);
+
+}
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -25,11 +31,18 @@ form.addEventListener('submit', e => {
 
 })
 
-const na = prompt('ENTER');
-socket.emit('new-user-joined', na);
 
+const    na = prompt("ENTER YOUR NAME");
+
+socket.emit('new-user-joined', na);
+socket.on('show', na => {
+    aaaa(`${na}`);
+})
+socket.on('welcome', na => {
+    appand(`Welcome To ChatApp: ${na}`,'left');
+})
 socket.on('user-joined', na => {
-    appand(`${na}: joined the chat`, 'left');
+    appand(`${na}: Joined The Chat`, 'left');
     
 })
 socket.on('receive', data => {
@@ -37,6 +50,6 @@ socket.on('receive', data => {
 
 })
 socket.on('left', data => {
-    appand(`${data} leave the chat`, 'left');
+    appand(`${data} Leave The Chat`, 'left');
 
 })
